@@ -1,0 +1,13 @@
+(executable
+ (public_name practice)
+ (flags (:standard
+          ; -cc clang
+          ; -ccopt -static
+          ; -ccopt -march=native
+          ; -ccopt -s
+          ; -ccopt -O2
+          ; -ccopt -no-pie
+          ; -ccopt -Wl,--build-id=none
+          ))
+ (name main)
+ (libraries practice stdlib stdio))

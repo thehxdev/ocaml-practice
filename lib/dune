@@ -1,0 +1,7 @@
+(library
+ (name practice)
+ (flags (:standard
+          ; -ccopt -march=native
+          ; -ccopt -O2
+          ; -ccopt -Wl,--build-id=none
+          )))
