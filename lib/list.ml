@@ -19,7 +19,7 @@ let rec last_two (l: 'a list): ('a * 'a) option =
 let rec nth (l: 'a list) (k: int): 'a option =
     match l with
     | [] -> None
-    | x :: xs -> if k == 1 then Some x else nth xs (k-1)
+    | x :: xs -> if k == 0 then Some x else nth xs (k-1)
 ;;
 
 (* calculate length of the list *)
