@@ -1,5 +1,5 @@
 # Ocaml-Practice
-Just wanted to learn [Ocaml](https://ocaml.org) programming language. Take a look at [lib](lib) directory.
+Just wanted to learn [Ocaml](https://ocaml.org) programming language. Take a look at [bin](bin) and [lib](lib) directories.
 
 ## Usage
 Install Ocaml with [The official guide](https://ocaml.org/install#linux_mac_bsd). Then in the project root:
