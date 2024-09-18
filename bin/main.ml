@@ -1,3 +1,11 @@
 let () =
-    Stdio.print_endline "Hello From Ocaml!"
+    let xs = [ 1; 2; 3; 4; 5; 6 ] in
+    Printf.printf "sum = %d\n" (Practice.List.sum xs);
+    Printf.printf "sum of evens = %d\n" (xs |> Practice.List.filter (fun x -> x mod 2 = 0) |> Practice.List.sum);
+    Printf.printf "first element of xs = %s\n" 
+        (match (Practice.List.nth xs 0) with
+            | Some x -> string_of_int x
+            | None -> "not found");
+    Printf.printf "length of xs = %d\n" (Practice.List.len xs);
+    Printf.printf "sum of squared = %d\n" (xs |> Practice.List.map (fun x -> x * x) |> Practice.List.sum);
 ;;
