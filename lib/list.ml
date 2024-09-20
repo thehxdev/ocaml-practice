@@ -37,7 +37,7 @@ let reverse (l: 'a list): 'a list =
     let rec reverse' (l: 'a list) (acc: 'a list): 'a list =
         match l with
         | [] -> acc
-        | x :: xs -> reverse' xs acc @ (x :: acc)
+        | x :: xs -> reverse' xs (x :: acc)
     in
     reverse' l []
 ;;
@@ -48,21 +48,25 @@ let is_palindrome (_l: 'a list): bool =
 ;;
 
 (* tail recursive map *)
+(** This version of map function is optimized (O n) but the result is in reversed order
+    If you want the right order, call reverse (O n^2) *)
 let map (f: ('a -> 'b)) (l: 'a list): 'b list =
     let rec map' (f: ('a -> 'b)) (l: 'a list) (acc: 'b list): 'b list =
         match l with
         | [] -> acc
-        | x :: xs -> (f x :: acc) @ map' f xs acc
+        | x :: xs -> map' f xs (f x :: acc)
     in
     map' f l []
 ;;
 
 (* tail recursive filter *)
+(** This version of filter function is optimized (O n) but the result is in reversed order
+    If you want the right order, call reverse (O n^2) *)
 let filter (f: ('a -> bool)) (l: 'a list): 'a list =
     let rec filter' (f: ('a -> bool)) (l: 'a list) (acc: 'a list): 'a list =
         match l with
         | [] -> acc
-        | x :: xs -> if (f x) then (x :: acc) @ filter' f xs acc else filter' f xs acc
+        | x :: xs -> if (f x) then filter' f xs (x :: acc) else filter' f xs acc
     in
     filter' f l []
 ;;
@@ -75,4 +79,14 @@ let sum (l: int list): int =
         | x :: xs -> sum' xs (acc + x)
     in
     sum' l 0
+;;
+
+let range (l: int) (h: int): int list =
+    let rec range' (l: int) (h: int) (acc: int list): int list =
+        if h <= l then
+            acc
+        else
+            range' l (h-1) (h :: acc)
+    in
+    range' l h []
 ;;
