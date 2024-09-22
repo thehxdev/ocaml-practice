@@ -1,5 +1,5 @@
 let () =
-    let xs = [ 1; 2; 3; 4; 5; 6 ] in
+    let xs = Practice.List.range 1 10 in
     Printf.printf "sum = %d\n" (Practice.List.sum xs);
     Printf.printf "sum of evens = %d\n" (xs |> Practice.List.filter (fun x -> x mod 2 = 0) |> Practice.List.sum);
     Printf.printf "first element of xs = %s\n" 
